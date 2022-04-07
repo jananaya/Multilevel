@@ -1,6 +1,4 @@
-package src;
-
-import src.interfaces.IBinaryTree;
+import interfaces.IBinaryTree;
 
 public class BinaryTree<E> implements IBinaryTree<E> {
     private IBinaryTree left;

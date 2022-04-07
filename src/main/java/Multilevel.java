@@ -1,6 +1,4 @@
-package src;
-
-import src.interfaces.IBinaryTree;
+import interfaces.IBinaryTree;
 
 import java.util.ArrayList;
 
