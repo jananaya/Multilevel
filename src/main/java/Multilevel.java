@@ -4,13 +4,16 @@ import java.util.ArrayList;
 
 public class Multilevel {
     private IBinaryTree<Person> root;
-    private ArrayList<Person> listPersonsByCountry;
-    private ArrayList<IBinaryTree<Person>> listBinaryTreeByName;
+    private final ArrayList<Person> listPersonsByCountry;
+    private final ArrayList<IBinaryTree<Person>> listBinaryTreeByName;
     private int numPersonsWithoutReferrers;
     private final int MONEY_PEER_REFERRERS;
     
     Multilevel()
     {
+        this.root = null;
+        this.listPersonsByCountry = new ArrayList<>();
+        this.listBinaryTreeByName = new ArrayList<>();
         this.MONEY_PEER_REFERRERS = 100;
     }
     
@@ -72,7 +75,7 @@ public class Multilevel {
         if (r == null)
             return false;
 
-        if (r.getData().equals(referrer)) {
+        if (r.getData().equals(person)) {
             if (r.left() == null) {
                 r.linkLeft(new BinaryTree<>(referrer));
                 return true;
