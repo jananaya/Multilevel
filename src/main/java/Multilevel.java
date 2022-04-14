@@ -70,8 +70,13 @@ public class Multilevel {
         countLeaves(r.right());
     }
 
-    private boolean insertReferrer(IBinaryTree<Person> r, Person referrer)
+    private boolean insertReferrer(IBinaryTree<Person> r, Person person, Person referrer)
     {
+        if (this.root == null) {
+            this.root = new BinaryTree<>(referrer);
+            return true;
+        }
+
         if (r == null)
             return false;
 
@@ -88,12 +93,12 @@ public class Multilevel {
             return false;
         }
 
-        return insertReferrer(r.left(), referrer) || insertReferrer(r.right(), referrer);
+        return insertReferrer(r.left(), person, referrer) || insertReferrer(r.right(), person, referrer);
     }
 
-    public boolean insertReferrer(Person referrer)
+    public boolean insertReferrer(Person person, Person referrer)
     {
-        return this.insertReferrer(this.root, referrer);
+        return this.insertReferrer(this.root, person, referrer);
     }
     
     public ArrayList<Person> listPersonsByCountry(String country)
