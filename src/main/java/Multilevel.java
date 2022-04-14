@@ -108,9 +108,16 @@ public class Multilevel {
         return this.listPersonsByCountry;
     }
     
-    public float meanAges()
-    {   
-        return (float) (this.sumAgePersons(this.root) / this.weight(this.root));
+    public float meanAge()
+    {
+        int numPersons = this.weight(this.root);
+
+        if (numPersons == 0)
+            return numPersons;
+
+        int sumAges = this.sumAgePersons(this.root);
+
+        return (float) sumAges / numPersons;
     }
     
     public ArrayList<Person> searchByName(String name)
