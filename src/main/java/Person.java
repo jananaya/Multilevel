@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Person {
     private String name;
     private String country;
@@ -31,5 +33,12 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person person)) return false;
+        return age == person.age && Objects.equals(name, person.name) && Objects.equals(country, person.country);
     }
 }
